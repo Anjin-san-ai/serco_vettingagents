@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Process &amp; personas — Serco Agentic Vetting</title>
+<meta name="description" content="Serco's four vetting teams, their defect rates, and the as-is process maps as validated BPMN models.">
+<link rel="stylesheet" href="assets/css/serco.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/a11y.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="brand-serco">
+    <img src="assets/img/serco-logo.png" alt="Serco">
+    <span class="divider" aria-hidden="true"></span>
+    <span class="context">Agentic Vetting</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="index.html">Overview</a>
+    <a href="process.html" aria-current="page">Process &amp; personas</a>
+    <a href="evidence.html">Evidence</a>
+    <a href="agents.html">Agent fleet</a>
+    <a href="simulation.html">Live simulation</a>
+    <a href="business-case.html">Business case</a>
+  </nav>
+  <div class="brand-cognizant"><img src="assets/img/Cognizantlogo.png" alt="Cognizant"></div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">What happens today</p>
+      <h1>Four teams, one defect class</h1>
+      <p class="lede">
+        Three different front doors, one underlying problem: the quality of what
+        arrives. That is why the same four prevention agents (A1–A4) serve all
+        three teams unchanged.
+      </p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="stats" style="margin-bottom:2rem">
+        <div class="stat"><span class="n">23<span class="unit">%</span></span><span class="k">Vetting &amp; Onboarding — RTW pushback</span><span class="src">229 of 1,004, May 2026 [WS p4]</span></div>
+        <div class="stat"><span class="n">14<span class="unit">%</span></span><span class="k">Direct Vetting — inbound request failure</span><span class="src">Document inputs [WS p1]</span></div>
+        <div class="stat"><span class="n">9<span class="unit">%</span></span><span class="k">Specialist Vetting — inbound request failure</span><span class="src">Plus offline Excel trackers [WS p1]</span></div>
+        <div class="stat"><span class="n">—</span><span class="k">AFRS — PEGA not yet live</span><span class="src">VDI has no Access Screening link [WS p1]</span></div>
+      </div>
+
+      <div class="table-scroll">
+        <table class="data">
+          <caption>The four teams — Vetting Cognizant Workshop Sept 2026, p1</caption>
+          <thead>
+            <tr><th>Team</th><th>Lead</th><th>Remit</th><th>Challenge</th><th>What they asked for</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Vetting &amp; Onboarding</strong></td>
+              <td>Jenny Rain</td>
+              <td>RTW checks, contract support, onboarding audits, visa management. <strong>All contracts.</strong></td>
+              <td>23% of RTW checks pushed back on document inputs</td>
+              <td>
+                <ul class="chips">
+                  <li class="chip chip--sys">Auto document review + reject/feedback</li>
+                  <li class="chip chip--sys">ID details to SAP/PeopleFirst</li>
+                  <li class="chip chip--sys">Upload documents to SAP</li>
+                  <li class="chip chip--sys">Convictions → ER</li>
+                  <li class="chip chip--sys">MyHR Online → SAP OT</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Direct Vetting</strong></td>
+              <td>Jay Smith</td>
+              <td>Majority of BAU vetting, basic screening to higher-level clearance. Defence, Leisure, Group, Health, Cit Svs</td>
+              <td>14% inbound failure; some contracts vet locally, away from the team</td>
+              <td>
+                <ul class="chips">
+                  <li class="chip chip--sys">OHP automation</li>
+                  <li class="chip chip--sys">Check vetting documents</li>
+                  <li class="chip chip--sys">Chase candidates</li>
+                  <li class="chip chip--sys">FAQ agent</li>
+                  <li class="chip chip--sys">Inbox agent</li>
+                  <li class="chip chip--sys">Apply for DBS &amp; NSV</li>
+                  <li class="chip chip--sys">MyHR/SNOW → Access Screening</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Specialist Vetting</strong></td>
+              <td>Mike Silcock</td>
+              <td>Contracts where clearance must precede employment — PECS/IRC, HAAS, HO MOJ, EMS</td>
+              <td>9% inbound failure; <strong>offline Excel trackers</strong>; triggers vary by contract</td>
+              <td>
+                <ul class="chips">
+                  <li class="chip chip--sys">Standardise the process</li>
+                  <li class="chip chip--sys">Inbox agent → Access task</li>
+                  <li class="chip chip--sys">Apply for SSCL/IRC</li>
+                  <li class="chip chip--sys">Instruction management off Excel</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>AFRS</strong><br><small>Armed Forces Recruitment Service</small></td>
+              <td>Richard Millward</td>
+              <td>Candidates (RN / Army / RAF) and employees. A “Team Serco” consortium — partner staff, e.g. Adecco, vetted by Serco</td>
+              <td><strong>PEGA still in build, contract not live.</strong> VDI has no Access Screening link and no copy-paste</td>
+              <td>
+                <ul class="chips">
+                  <li class="chip chip--sys">Access case setup from PEGA</li>
+                  <li class="chip chip--sys">Apply for NSV</li>
+                  <li class="chip chip--sys">Doc uploads into PEGA</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="src-note" style="margin-top:1rem">
+        Process owner <strong>Claire Edwards</strong> (VOB Operations Manager) ·
+        SMEs <strong>Holly Wright</strong>, <strong>Jenny Rain</strong> ·
+        <strong>Jack Chadwick</strong> (OpEx) raised all three business cases ·
+        <strong>Kev Sambor</strong> Contract Director
+      </p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <p class="eyebrow">As-is process maps</p>
+      <h2>Four as-is process models, script-validated</h2>
+      <p class="lede">
+        Generated and validated with the <code>okhp3-visual-process-modeling</code>
+        skill from the <a href="https://github.com/OKHP3/skillz">OKHP3/skillz</a>
+        BP-SKILL suite. The source of truth remains the Visio originals.
+      </p>
+      <div class="callout callout--warn">
+        <p style="margin:0">
+          <strong>Shown as source, not yet as diagrams.</strong> These are the
+          validated model definitions, which is why they read as code rather than
+          as swimlanes. Rendering them as proper SVG swimlane diagrams — with the
+          RTW pushback loop called out, since that loop is where the 23% comes
+          from — is the next piece of work. Until then this section is for the
+          record rather than for the room.
+        </p>
+      </div>
+
+      <div class="callout callout--warn">
+        <p>
+          <strong>Worth knowing if you use that skill.</strong> Its bundled syntax
+          reference documents a bracket DSL (<code>[ Task ]</code>,
+          <code>{ Decision? }</code>) but its validator parses a different
+          declaration DSL (<code>task t1 "Label"</code>) and rejects the documented
+          form outright. The maps here are written to the <em>validator's</em>
+          grammar, because that is the one that actually gates. The skill also
+          declares its own evals <code>not-run</code>, so every map was read by hand
+          against the syntax reference as well as validated by script.
+        </p>
+      </div>
+
+      <figure class="map-frame">
+        <figcaption>
+          <span>1.1 Conduct RTW Check — including the pushback loop</span>
+          <span class="tag">876/month · SLA 2 hrs · AHT ~5 min</span>
+        </figcaption>
+        <pre class="map-src" id="map-rtw"></pre>
+        <div class="map-validation">validate-bpmn-beta.mjs: <span class="pass">PASS</span> · lint-process-model.mjs: <span class="pass">100/100</span></div>
+      </figure>
+
+      <figure class="map-frame">
+        <figcaption>
+          <span>1.5 Conduct Audit — SAP writes, visa gateway, four follow-on branches</span>
+          <span class="tag">643/month · SLA 3 days · actual 7.2 days</span>
+        </figcaption>
+        <pre class="map-src" id="map-audit"></pre>
+        <div class="map-validation">validate-bpmn-beta.mjs: <span class="pass">PASS</span> · lint: <span class="warn">95/100</span> — one readability warning: the VOB lane holds 20 elements against a threshold of 15. That reflects the real breadth of the role; splitting the lane to score 100 would misrepresent the process.</div>
+      </figure>
+
+      <figure class="map-frame">
+        <figcaption>
+          <span>Onboarding end to end — steps 1.1 to 1.8 across five lanes</span>
+          <span class="tag">RTW → contract → audit → vetting setup</span>
+        </figcaption>
+        <pre class="map-src" id="map-onboarding"></pre>
+        <div class="map-validation">validate-bpmn-beta.mjs: <span class="pass">PASS</span> · lint-process-model.mjs: <span class="pass">100/100</span></div>
+      </figure>
+
+      <figure class="map-frame">
+        <figcaption>
+          <span>Specialist Vetting (New Staff) — with Home Office as a separate pool</span>
+          <span class="tag tag--draft">DRAFT — DON'T AUTOMATE</span>
+        </figcaption>
+        <pre class="map-src" id="map-specialist"></pre>
+        <div class="map-validation">validate-bpmn-beta.mjs: <span class="pass">PASS</span> · lint: <span class="warn">95/100</span> — Vetting Team lane holds 24 elements. <strong>This map is watermarked “DRAFT — DON'T AUTOMATE” in the source and is excluded from the automation scope until signed off.</strong></div>
+      </figure>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Serco Vetting &amp; Onboarding · Agentic AI solution design · September 2026</span>
+    <span>Prepared by Cognizant · figures sourced from Serco process documentation</span>
+  </div>
+</footer>
+
+<script src="assets/js/maps.js"></script>
+</body>
+</html>

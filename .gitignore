@@ -1,0 +1,25 @@
+# Confidential source documents — NOT for the repository
+Vetting Cognizant Workshop Sept 2026.pdf
+Vetting Processes Sept 26.pdf
+Acceptable-Documents-Guide.pdf
+
+# Large source assets not needed by the deployed site
+serco-logo-variations-primary-1024x768.png
+
+# Internal planning documents
+plan.md
+
+# Tool cache / generated artefacts
+.img2threejs/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo

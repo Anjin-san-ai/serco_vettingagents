@@ -1,0 +1,52 @@
+bpmn-beta
+accTitle: Vetting and Onboarding Audit - Current State
+accDescr: Swimlane process model of Serco's post-contract onboarding audit, from DocuSign contract signature through SAP record updates, visa tracking and the four follow-on ServiceNow actions, to closing the audit ticket.
+pool serco "Serco" {
+  lane vob "Vetting and Onboarding Team" {
+    start s1 "Contract signed on DocuSign"
+    task t1 "Check details against signed contract"
+    xor g0 "Issues identified?"
+    end e0 "Not observed in sample"
+    task t2 "Upload contract and RTW documents to SAP"
+    task t3 "Add personal details to SAP record"
+    xor g1 "Visa management required?"
+    task t4 "Track visa details (Excel)"
+    xor g2 "P45 attached?"
+    task t5 "Generate ServiceNow ticket to Payroll"
+    xor g3 "Disabilities declared?"
+    task t6 "Inform line manager via ServiceNow"
+    xor g4 "Criminal convictions declared?"
+    task t7 "Generate ServiceNow ticket to Employment Relations"
+    xor g5 "Is the recruit a veteran?"
+    xor g6 "Veteran documents present?"
+    task t8 "Generate ServiceNow ticket to Payroll for veteran status"
+    task t9 "Raise ServiceNow ticket to line manager requesting documents"
+    task t10 "Close ticket on ServiceNow"
+    end e1 "Audit complete"
+    s1 --> t1
+    t1 --> g0
+    g0 --> e0: "yes"
+    g0 --> t2: "no"
+    t2 --> t3
+    t3 --> g1
+    g1 --> t4: "yes"
+    g1 --> g2: "no"
+    t4 --> g2
+    g2 --> t5: "yes (193/month)"
+    g2 --> g3: "no"
+    t5 --> g3
+    g3 --> t6: "yes (86/month)"
+    g3 --> g4: "no"
+    t6 --> g4
+    g4 --> t7: "yes (43/month)"
+    g4 --> g5: "no"
+    t7 --> g5
+    g5 --> g6: "yes (4/month)"
+    g5 --> t10: "no"
+    g6 --> t8: "yes"
+    g6 --> t9: "no"
+    t8 --> t10
+    t9 --> t10
+    t10 --> e1
+  }
+}

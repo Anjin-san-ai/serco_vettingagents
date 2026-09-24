@@ -1,0 +1,70 @@
+bpmn-beta
+accTitle: Specialist Vetting for New Staff - DRAFT DO NOT AUTOMATE
+accDescr: Swimlane model of Serco Specialist Vetting for new staff across PECS IRC and HAAS EMS contracts, including the offline ITC tracker, the daily Access Screening completion report, contract specific clearance routing, and Home Office submission. This map is watermarked DRAFT DO NOT AUTOMATE in the source document and is not approved for automation.
+pool serco "Serco" {
+  lane vt "Vetting Team" {
+    start s1 "Onboarding instruction received"
+    task t1 "Add employee details to the ITC tracker (Excel)"
+    task t2 "Check ITC tracker for employee"
+    task t3 "Save documents to vetting drive"
+    task t4 "Setup candidate on Access Screening"
+    task t5 "Add AS reference and date to ITC tracker or ServiceNow ticket"
+    task t7 "Run daily report on AS link completion"
+    task t8 "Review pre-employment checks"
+    xor g1 "Pass pre-employment check?"
+    task t9 "Feedback to recruitment and place candidate on hold"
+    xor g2 "Which contract route?"
+    task t10 "Submit to Home Office for PECS vetting"
+    task t11 "Populate CRF in SSCL Portal (HAAS)"
+    task t12 "Populate VCRF (EMS)"
+    task t13 "Initiate standard vetting checks on AS (BPSS, DBS, Enhanced DBS)"
+    task t14 "Complete vetting checks"
+    task t15 "Conduct clearance checks"
+    task t16 "Receive clearance outcome"
+    xor g3 "Clearance granted?"
+    task t17 "Notify site and candidate of clearance"
+    task t18 "Notify site and candidate of refusal"
+    task t19 "Close on AS and data cleanse"
+    end e1 "Vetting complete"
+    end e2 "No further action"
+    s1 --> t1
+    t1 --> t2
+    t2 --> t3
+    t3 --> t4
+    t4 --> t5
+    t7 --> t8
+    t8 --> g1
+    g1 --> t9: "no"
+    g1 --> g2: "yes"
+    t9 --> e2
+    g2 --> t10: "PECS"
+    g2 --> t11: "HAAS"
+    g2 --> t12: "EMS"
+    g2 --> t13: "standard"
+    t11 --> t13
+    t12 --> t13
+    t13 --> t14
+    t14 --> t15
+    t15 --> t16
+    t16 --> g3
+    g3 --> t17: "yes"
+    g3 --> t18: "no"
+    t17 --> t19
+    t18 --> t19
+    t19 --> e1
+  }
+  lane cand "Candidate" {
+    task t6 "Complete Access Screening link"
+    t5 --> t6
+    t6 --> t7
+  }
+}
+pool ho "Home Office" {
+  lane hoc "Clearance" {
+    task h1 "Process PECS vetting request"
+    task h2 "Issue clearance outcome"
+    h1 --> h2
+  }
+}
+t10 ~~> h1: "Submit to Home Office (Outlook)"
+h2 ~~> t16: "Clearance outcome received (Outlook)"

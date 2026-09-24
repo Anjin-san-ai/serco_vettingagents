@@ -1,0 +1,257 @@
+Acceptable Document Guide for Hiring Managers - extracted text
+==================================================================
+
+Source: Acceptable-Documents-Guide.pdf (3 pages)
+Produced by Kev Sambor on behalf of Serco. Updated July 2026.
+
+Extracted verbatim with PyMuPDF so that every clause quoted on
+evidence.html can be checked against it mechanically. Cited as
+[ADG p1] .. [ADG p3]. Do not hand-edit: regenerate with
+  python3 tools/extract-guide.py
+
+
+==================================================================
+PAGE 1
+==================================================================
+Serco Business
+Page 1 of 3
+Produced by Kev Sambor on behalf of Serco. Updated July 2026. Review against current Home Office/DBS guidance before use.
+Serco Business
+Right to Work & Screening/Vetting Checks
+Acceptable Document Guide for Hiring Managers
+Purpose: This guide explains what Right to Work (RTW) evidence and additional screening/vetting ID documents hiring managers need
+to collect, how to check/certify them, and when to escalate to Vetting & Onboarding (VOB).
+Manager quick actions before offer approval
+• Confirm the candidate will be living in the UK for the UK role, including remote-working roles.
+• Collect the correct RTW evidence based on nationality/status and upload it to the external offer form.
+• For non-UK/Irish candidates, obtain the GOV.UK share code/eVisa and date of birth; share codes expire after 90 days.
+• For UK/Irish valid passports, use IDVT where available or complete a physical original-document check.
+• Reject and re-request any unclear, cropped, expired, incomplete or uncertified evidence.
+• Where names differ, obtain supporting evidence such as marriage certificate, civil partnership certificate, divorce decree or deed poll.
+1. Document quality standards - reject and re-request if not met
+Standard
+What hiring managers must check
+Full image
+All four corners must be visible. Do not accept cropped images, only the photo page of a passport, or missing
+pages that show restrictions/endorsements.
+Clear and legible
+No glare, blur, faded dates or obscured name, date of birth, passport number, expiry date, visa status or
+address.
+Separate evidence
+Each ID document must be uploaded separately and show full verification/certification details on the relevant
+page.
+Certification date
+Document certification should normally be within 6 months. A GOV.UK share code/eVisa check must be current;
+share codes expire after 90 days.
+Name accuracy
+The name spelling on the PF/offer form must match the passport or primary ID. Middle name is not essential on
+the PF form, but name discrepancies must be explained and evidenced.
+eVisa legal name
+The online immigration status/eVisa must show the candidate’s current legal name. Escalate to VOB if the
+candidate cannot amend it.
+Photo likeness
+The checker must confirm that the photograph on the document, IDVT report or GOV.UK result matches the
+person presenting for work.
+Audit trail
+Use the exact certification wording, include the checker’s full name and date, and retain/upload the full PDF
+where applicable.
+2. Right to Work evidence - what to collect and how to check
+Important: RTW evidence is separate from additional screening/vetting ID. Follow Home Office guidance and Serco/VOB instructions
+where there is any doubt. Evidence is based on nationality and document types held.
+Candidate / situation
+Evidence to collect
+Check/certification route
+UK or Irish - valid passport
+Valid UK/Irish passport. IDVT may be used where
+available; otherwise, physical original document check.
+IDVT report or certified copy of original passport.
+Confirm photo likeness.
+UK or Irish - birth/adoption
+certificate route
+UK/Irish birth or adoption certificate plus National
+Insurance evidence from a government department or
+previous employer.
+Original documents must be checked in person;
+IDVT/video is not available for this route.
+UK or Irish - expired passport
+Expired UK/Irish passport may be accepted only via
+the permitted physical original document check.
+Check the original in the presence of the holder and
+certify the copy. IDVT is not available for expired
+passports.
+EEA/Swiss
+Online GOV.UK RTW check using share code/eVisa,
+plus proof of identity such as passport or national
+identity card where required for screening/vetting.
+Share code/eVisa check only for RTW. It must be in
+the current legal name and the photo must match the
+candidate.
+Rest of world
+Online GOV.UK RTW check using share code/eVisa,
+plus passport where available. Some endorsed current
+passports/immigration status documents may require a
+manual original check.
+Add share code to the offer form for VOB or download
+the full GOV.UK PDF and certify the photo match.
+Student visa holder
+Online RTW check plus evidence of academic
+term/vacation dates for the full period of study and
+employment.
+Offer hours and contract length must match visa
+restrictions. Escalate if the role or hours do not match
+the visa.
+Name changed
+Supporting document linking old and current names,
+such as marriage/civil partnership certificate, divorce
+decree or deed poll.
+Check original or video-check supporting document
+where permitted. Upload/certify with the main ID
+evidence.
+
+==================================================================
+PAGE 2
+==================================================================
+Serco Business
+Page 2 of 3
+Produced by Kev Sambor on behalf of Serco. Updated July 2026. Review against current Home Office/DBS guidance before use.
+Serco Business
+3. How to check and certify documents
+Check type
+Process and required certification
+IDVT - UK/Irish valid passports
+Request via MyHR Portal > Ask MyHR > Vetting & Onboarding > Remote ID Checks. Provide the candidate’s
+full name and email. VOB emails the candidate, receives the IDVT outcome, and provides the PDF report.
+The hiring manager/requestor must check the photographs for likeness.
+GOV.UK share code/eVisa
+Candidate provides a share code and date of birth. run the check on GOV.UK, download the full PDF, confirm
+the photo matches the candidate, and certify: “Confirmation photo matches the candidate - [name], [date]”.
+Physical original-document check
+Obtain the original document, check it in the presence of the holder, copy/scan the full document and certify:
+“Check of ORIGINAL document performed on [date] by [full name]” or “I certify this is a true copy of the
+original - [full name], [date]”.
+Video check for supporting/vetting
+ID
+Where permitted, obtain a scan/photo in advance, check the document and photo during a live video call, and
+certify: “Live video check of document undertaken on [date] by [full name]”. Original documents may still need
+to be presented before employment/Day 1 depending on the route.
+Follow-up RTW checks
+For time-limited permission, VOB will contact the line manager around 3 months before expiry. The employee
+must make any in-time application and provide updated evidence before the expiry/follow-up deadline.
+Visas in expired passports
+If a visa is attached to an expired passport, ask the candidate to provide an up-to-date share code/eVisa or
+document. Do not approve the offer until VOB has verified the status.
+TUPE transferring employees
+RTW checks are required for all employees transferring into Serco and must be completed within 40 days of
+the transfer date, including absent employees.
+4. Acceptable ID documents for screening/vetting checks
+This section is for additional screening/vetting checks only - not as a substitute for Right to Work checks. If the document is not
+listed, ask the candidate for an acceptable replacement or escalate to VOB. Serco Justice and Immigration contracts may have bespoke
+requirements.
+Route
+Required combination
+Route 1 - use wherever possible
+1 document from Group 1 + 2 further documents from Group 1, 2a or 2b. At least one document should
+confirm current address and the combination must confirm name and date of birth.
+Route 2 - only if no Group 1 document
+1 document from Group 2a + 2 further documents from Group 2a or 2b. At least one document should
+confirm current address. VOB/DBS may also require external ID verification.
+Route 3 - exception only
+Birth certificate issued more than 12 months after birth + 1 document from Group 2a + 3 further
+documents from Group 2a or 2b. At least one document should confirm current address. Escalate
+before using Route 3.
+5. Useful reference links
+•
+Home Office - Right to work checks: employer guide
+•
+Home Office - Right to work checklist
+•
+GOV.UK - Check someone’s immigration status using a share code
+•
+DBS - Identity checking guidelines for Standard/Enhanced checks
+
+==================================================================
+PAGE 3
+==================================================================
+Serco Business
+Page 3 of 3
+Produced by Kev Sambor on behalf of Serco. Updated July 2026. Review against current Home Office/DBS guidance before use.
+Serco Business
+6. Consolidated acceptable ID table - screening/vetting only
+Use this table to identify acceptable vetting ID. Validity periods apply at the point of ID check.
+Group
+Acceptable documents
+Key notes / validity
+Group 1
+Primary identity
+documents
+• Passport
+• eVisa accessed via View and Prove service
+• Biometric Residence Permit (BRP)
+• Application Registration Card (ARC)
+• Current driving licence photocard - full or provisional - UK, Isle of Man or Channel Islands
+• Birth certificate issued within 12 months of birth - UK, Isle of Man or Channel Islands, including UK authorities overseas
+• Adoption certificate - UK or Channel Islands
+• Any current and valid passport; UK passport can be
+expired up to a maximum of 6 months for DBS ID
+checking only.
+• eVisa share code must be an immigration status
+share code; check from a GOV.UK address.
+• BRP can no longer prove RTW but may be
+acceptable for ID where it shows ILR/ILE/No Time
+Limit within current DBS rules.
+• ARC must be checked against the Home Office
+Employer Checking Service.
+• Driving licence must be current/valid; paper
+counterpart to photocard is not valid.
+Group 2a
+Trusted government
+documents
+• Current driving licence photocard - full or provisional - all countries outside UK except Isle of Man/Channel Islands
+• Current paper driving licence - full or provisional - UK, Isle of Man or Channel Islands, if issued before March 2000
+• Birth certificate issued more than 12 months after time of birth - UK, Isle of Man or Channel Islands
+• Marriage or civil partnership certificate - UK or Channel Islands
+• Immigration document, visa or work permit
+• HM Forces ID card or HM Armed Forces Veteran card - UK
+• Firearms licence - UK, Isle of Man or Channel Islands
+• Documents must be current/valid where relevant.
+• Paper driving licence details, including name and
+address, must be up to date.
+• Check for photo tampering, amendments and
+consistency with the application form.
+Group 2b
+Financial and social
+history documents
+• Mortgage statement - UK - issued in last 12 months
+• Bank/building society statement - UK/Channel Islands - issued in last 3 months
+• Bank/building society statement - outside UK - issued in last 3 months; branch must be in country where applicant lives/works
+• Bank/building society account opening confirmation letter - UK - issued in last 3 months
+• Credit card statement - UK - issued in last 3 months
+• Financial statement, e.g. pension/endowment - UK - issued in last 12 months
+• P45 or P60 - UK/Channel Islands - issued in last 12 months
+• Council Tax statement - UK/Channel Islands - issued in last 12 months
+• Letter of sponsorship from future UK employment provider - applicant residing outside UK at application - must still be valid
+• Utility bill - UK - gas/electric/water - issued in last 3 months
+• Benefit statement, e.g. Child Benefit or State Pension - UK - issued in last 12 months
+• Central/local government, government agency or local council entitlement document - UK/Channel Islands - issued in last 12
+months
+• HMRC self-assessment letter or tax demand - UK - issued in last 12 months
+• EHIC or GHIC - UK - must still be valid
+• EEA National ID card - must still be valid
+• Irish Passport Card - must still be valid; cannot be used with an Irish passport
+• PASS-accredited proof of age card - UK, Isle of Man or Channel Islands - must still be valid
+• Letter from head teacher, college principal or apprenticeship provider - UK, age 16-19 full-time education/apprenticeship,
+exceptional use only - issued in last month
+• At least one document across the chosen route
+should confirm the current address.
+• Bank statement print-offs are acceptable only where
+endorsed with a bank stamp and signature where
+required by the guidance.
+• P45/P60 must be original; not an online document or
+printed from an online account/PDF.
+• Utility bills must not be mobile phone bills and
+should not be printed from an online account.
+• Digital PASS cards are acceptable only from
+approved digital PASS providers and the QR code
+must be used to confirm details.
+• Do not accept documents outside the listed validity
+period; request replacement evidence.

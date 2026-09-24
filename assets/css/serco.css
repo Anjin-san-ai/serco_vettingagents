@@ -1,0 +1,275 @@
+/* ==========================================================================
+   Serco Agentic Vetting — design system
+   Palette extracted from Serco's own PowerPoint master
+   (Vetting Cognizant Workshop Sept 2026.pdf) and the supplied logo PNG.
+   serco.com/brand-guidelines/primary-colours returns 403 to automated fetches.
+
+   Contrast audit (computed, WCAG 2.1 ratios against #FFFFFF):
+     #232A30 body        14.3:1  AAA
+     #46555F secondary    7.5:1  AAA
+     #C50001 headings     6.2:1  AA normal / AAA large   -> safe for text
+     #EB2D2E accent       4.2:1  FAILS AA normal         -> graphics + large only
+     #1D0743 on white    18.0:1  AAA (and white on it)
+     #D7DEE2 on #1D0743  13.2:1  AAA
+   ========================================================================== */
+
+/* ---------- vendored fonts (offline; Google Fonts is unreachable) ---------- */
+@font-face {
+  font-family: 'Lora';
+  src: url('../fonts/lora-latin-400-normal.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Lora';
+  src: url('../fonts/lora-latin-600-normal.woff2') format('woff2');
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Lora';
+  src: url('../fonts/lora-latin-700-normal.woff2') format('woff2');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+:root {
+  /* brand */
+  --red:        #C50001;
+  --red-bright: #EB2D2E;   /* graphics and large text only — 4.2:1 */
+  --purple:     #1D0743;
+  --purple-lo:  #120428;
+  --slate:      #232A30;
+  --steel:      #46555F;
+  --steel-2:    #3D4961;
+  --mist:       #D7DEE2;
+  --lilac:      #E4D8FB;
+  --offwhite:   #F2F2F2;
+  --charcoal:   #2D3437;
+  --white:      #FFFFFF;
+
+  /* semantic */
+  --ink:        var(--slate);
+  --ink-2:      var(--steel);
+  --rule:       #DCE2E6;
+  --rule-strong:#B9C4CB;
+  --surface:    var(--white);
+  --surface-2:  var(--offwhite);
+  --surface-3:  #E9EEF1;
+
+  /* type */
+  --display: 'Lora', Georgia, 'Times New Roman', serif;
+  --ui: 'Avenir Next LT Pro', 'Avenir Next', Avenir, 'Segoe UI', system-ui,
+        -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* scale */
+  --sp-1: .25rem; --sp-2: .5rem;  --sp-3: .75rem; --sp-4: 1rem;
+  --sp-5: 1.5rem; --sp-6: 2rem;   --sp-7: 3rem;   --sp-8: 4rem;
+  --maxw: 74rem;
+  --radius: 4px;
+  --shadow: 0 1px 2px rgba(35,42,48,.06), 0 8px 24px rgba(35,42,48,.06);
+  --shadow-lift: 0 2px 4px rgba(35,42,48,.08), 0 16px 40px rgba(35,42,48,.10);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--ui);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { font-family: var(--display); font-weight: 600; line-height: 1.2; margin: 0 0 var(--sp-3); }
+h1 { font-size: clamp(2rem, 4.4vw, 3.1rem); color: var(--red); letter-spacing: -.01em; }
+h2 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); color: var(--red); }
+h3 { font-size: 1.2rem; color: var(--purple); font-weight: 700; }
+h4 { font-size: 1rem; font-family: var(--ui); font-weight: 700; color: var(--purple); }
+p  { margin: 0 0 var(--sp-4); max-width: 68ch; }
+a  { color: var(--red); text-underline-offset: 2px; }
+a:hover { color: var(--red-bright); }
+strong { font-weight: 700; color: var(--purple); }
+small { font-size: .82rem; color: var(--ink-2); }
+code { font-family: var(--mono); font-size: .88em; background: var(--surface-2);
+       padding: .1em .35em; border-radius: 3px; color: var(--purple); }
+
+:focus-visible { outline: 3px solid var(--red-bright); outline-offset: 2px; }
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--sp-5); }
+.lede { font-size: 1.15rem; color: var(--ink-2); max-width: 62ch; }
+.eyebrow {
+  font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--steel); margin: 0 0 var(--sp-2);
+}
+.center { text-align: center; }
+.mono { font-family: var(--mono); font-size: .86rem; }
+
+/* ---------- header: Serco left · nav centre · Cognizant right ----------
+   Headers are deliberately LIGHT on every page, including the simulation.
+   The supplied Serco lockup sits on an opaque white field and we have no
+   reversed variant, so a dark header would force us to recolour a client
+   mark. Only the 3D canvas goes dark.                                     */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; gap: var(--sp-5);
+  padding: var(--sp-3) var(--sp-5);
+  background: rgba(255,255,255,.94);
+  backdrop-filter: saturate(160%) blur(8px);
+  border-bottom: 1px solid var(--rule);
+}
+.brand-serco { display: flex; align-items: center; flex: 0 0 auto; }
+.brand-serco img { height: 30px; width: auto; display: block; }
+.brand-serco .divider {
+  width: 1px; height: 28px; background: var(--rule-strong); margin: 0 var(--sp-4);
+}
+.brand-serco .context {
+  font-family: var(--display); font-size: .95rem; color: var(--purple); white-space: nowrap;
+}
+.site-nav { flex: 1 1 auto; display: flex; gap: var(--sp-1); justify-content: center; flex-wrap: wrap; }
+.site-nav a {
+  font-size: .87rem; font-weight: 600; color: var(--steel); text-decoration: none;
+  padding: var(--sp-2) var(--sp-3); border-radius: var(--radius); white-space: nowrap;
+}
+.site-nav a:hover { background: var(--surface-2); color: var(--purple); }
+.site-nav a[aria-current="page"] {
+  color: var(--red); background: var(--surface-2); box-shadow: inset 0 -2px 0 var(--red);
+}
+/* Cognizant: secondary mark, header top-right, and nowhere else on the page. */
+.brand-cognizant { flex: 0 0 auto; display: flex; align-items: center; }
+.brand-cognizant img { height: 26px; width: auto; display: block; }
+
+@media (max-width: 860px) {
+  .site-header { flex-wrap: wrap; gap: var(--sp-3); }
+  .site-nav { order: 3; flex-basis: 100%; justify-content: flex-start; }
+  .brand-serco .context, .brand-serco .divider { display: none; }
+}
+
+/* ---------- hero ---------- */
+.hero { padding: var(--sp-8) 0 var(--sp-7); border-bottom: 1px solid var(--rule); }
+.hero h1 { max-width: 30ch; }
+.hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: var(--sp-7); align-items: start; }
+@media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
+
+/* ---------- section bands ---------- */
+.band { padding: var(--sp-7) 0; }
+.band--tint { background: var(--surface-2); border-block: 1px solid var(--rule); }
+.band--deep {
+  background: var(--purple); color: var(--mist);
+  border-block: 1px solid var(--purple);
+}
+.band--deep h2 { color: var(--white); }
+.band--deep h3, .band--deep h4 { color: var(--lilac); }
+.band--deep strong { color: var(--white); }
+.band--deep a { color: var(--lilac); }
+.band--deep .lede, .band--deep small { color: #BFC8D6; }
+.band--deep .eyebrow { color: var(--lilac); }
+
+/* ---------- stat tiles ---------- */
+.stats { display: grid; gap: var(--sp-4); grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); }
+.stat {
+  background: var(--surface); border: 1px solid var(--rule);
+  border-top: 3px solid var(--red); border-radius: var(--radius);
+  padding: var(--sp-5); box-shadow: var(--shadow);
+}
+.stat .n {
+  font-family: var(--display); font-weight: 700; font-size: 2.4rem;
+  line-height: 1; color: var(--purple); display: block; margin-bottom: var(--sp-2);
+}
+.stat .n .unit { font-size: 1.05rem; color: var(--steel); font-family: var(--ui); font-weight: 600; }
+.stat .k { font-weight: 700; color: var(--ink); display: block; font-size: .95rem; }
+.stat .src { display: block; margin-top: var(--sp-2); font-size: .74rem; color: var(--steel); }
+.band--deep .stat { background: rgba(255,255,255,.05); border-color: rgba(228,216,251,.22); }
+.band--deep .stat .n { color: var(--white); }
+.band--deep .stat .n .unit, .band--deep .stat .src { color: #B9A9D6; }
+.band--deep .stat .k { color: var(--mist); }
+
+/* ---------- cards ---------- */
+.cards { display: grid; gap: var(--sp-4); grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); }
+.card {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius);
+  padding: var(--sp-5); box-shadow: var(--shadow);
+}
+.card h3 { margin-bottom: var(--sp-2); }
+.card > :last-child { margin-bottom: 0; }
+.card--accent { border-left: 3px solid var(--red); }
+
+/* ---------- chips ---------- */
+.chips { display: flex; flex-wrap: wrap; gap: var(--sp-1); list-style: none; margin: 0 0 var(--sp-3); padding: 0; }
+.chip {
+  font-size: .72rem; font-weight: 700; letter-spacing: .02em;
+  padding: .2em .6em; border-radius: 999px;
+  background: var(--surface-3); color: var(--steel-2); border: 1px solid var(--rule);
+  white-space: nowrap;
+}
+.chip--sys { background: var(--lilac); color: #40206E; border-color: #CDBDF0; }
+.chip--save { background: #FFE9E9; color: #8E0B0C; border-color: #F5C7C7; }
+.chip--wave { background: var(--purple); color: var(--white); border-color: var(--purple); }
+.chip--human { background: #FFF4D6; color: #6B4D00; border-color: #EBD79A; }
+
+/* ---------- tables ---------- */
+.table-scroll { overflow-x: auto; margin: 0 0 var(--sp-4); border: 1px solid var(--rule); border-radius: var(--radius); }
+table.data { width: 100%; border-collapse: collapse; font-size: .9rem; background: var(--surface); }
+table.data caption { text-align: left; padding: var(--sp-3) var(--sp-4); font-weight: 700; color: var(--purple); }
+table.data th, table.data td { padding: var(--sp-3) var(--sp-4); text-align: left; vertical-align: top; border-bottom: 1px solid var(--rule); }
+table.data thead th { background: var(--purple); color: var(--white); font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; border-bottom: none; }
+table.data tbody tr:nth-child(even) { background: var(--surface-2); }
+table.data tbody tr:last-child td { border-bottom: none; }
+table.data td.num, table.data th.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.data tr.total td { font-weight: 700; color: var(--purple); background: var(--surface-3); }
+
+/* ---------- callouts ---------- */
+.callout {
+  border-left: 3px solid var(--red); background: var(--surface-2);
+  padding: var(--sp-4) var(--sp-5); border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 0 0 var(--sp-5);
+}
+.callout > :last-child { margin-bottom: 0; }
+.callout--warn { border-left-color: #B26A00; background: #FFF8E8; }
+.callout--draft { border-left-color: var(--red); background: #FFF0F0; }
+.callout cite { display: block; margin-top: var(--sp-2); font-size: .8rem; font-style: normal; color: var(--steel); }
+.quote-serco { font-family: var(--display); font-size: 1.1rem; color: var(--purple); font-style: italic; }
+
+/* ---------- source footnotes ---------- */
+.src-note { font-size: .78rem; color: var(--steel); }
+.src-note::before { content: "Source: "; font-weight: 700; }
+.badge-serco, .badge-ours {
+  display: inline-block; font-size: .68rem; font-weight: 700; letter-spacing: .06em;
+  text-transform: uppercase; padding: .15em .5em; border-radius: 3px; vertical-align: middle;
+}
+.badge-serco { background: var(--purple); color: var(--white); }
+.badge-ours  { background: var(--surface-3); color: var(--steel-2); border: 1px solid var(--rule-strong); }
+
+/* ---------- lists ---------- */
+ul.tick, ul.plain { list-style: none; padding: 0; margin: 0 0 var(--sp-4); }
+ul.tick li { position: relative; padding-left: 1.5rem; margin-bottom: var(--sp-2); }
+ul.tick li::before {
+  content: "\2713"; position: absolute; left: 0; top: 0;
+  color: var(--red); font-weight: 700;
+}
+ul.plain li { margin-bottom: var(--sp-2); }
+
+/* ---------- footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--rule); background: var(--surface-2);
+  padding: var(--sp-5); margin-top: var(--sp-7);
+  font-size: .82rem; color: var(--steel);
+}
+.site-footer .wrap { display: flex; justify-content: space-between; gap: var(--sp-4); flex-wrap: wrap; }
+/* No Cognizant mark in the footer — header top-right only, by instruction. */
+
+/* ---------- skip link ---------- */
+.skip {
+  position: absolute; left: -9999px; top: 0; z-index: 100;
+  background: var(--purple); color: var(--white); padding: var(--sp-3) var(--sp-4);
+}
+.skip:focus { left: var(--sp-3); top: var(--sp-3); }
+
+/* ---------- print ---------- */
+@media print {
+  .site-header, .site-nav, .skip { position: static; }
+  .band--deep { background: #fff; color: #000; }
+  .band--deep h2, .band--deep h3 { color: #000; }
+}

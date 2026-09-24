@@ -1,0 +1,43 @@
+bpmn-beta
+accTitle: Serco Onboarding and Vetting Setup - Current State
+accDescr: End to end swimlane model of Serco onboarding from ServiceNow ticket receipt through the Right to Work check, contract approval and signature, onboarding audit, and setup of vetting and occupational health checks including BS7858 clearance.
+pool serco "Serco" {
+  lane vob "Vetting and Onboarding Team" {
+    start s1 "Vetting and Onboarding ticket received on ServiceNow"
+    task t1 "1.1 Conduct RTW (Right to Work) check"
+    task t5 "1.5 Conduct onboarding audit"
+    xor g1 "Direct vetting site?"
+    end e1 "No action required"
+    s1 --> t1
+  }
+  lane hrd "HRD and Budget Holder" {
+    task t2 "1.2 Contract approval (salary and T&Cs)"
+    t1 --> t2
+  }
+  lane lm "Line Manager" {
+    task t3 "1.3 Review and submit contract"
+    t2 --> t3
+  }
+  lane emp "Employee" {
+    task t4 "1.4 Sign contract on DocuSign"
+    task t8 "Employee completes occupational health check"
+    t3 --> t4
+    t4 --> t5
+  }
+  lane dv "Direct Vetting Team" {
+    task t6 "1.6 Setup vetting checks on Access Screening"
+    task t7 "1.7 Trigger occupational health check"
+    xor g2 "BS7858 vetting required?"
+    task t9 "1.8 Setup BS7858 clearance"
+    end e2 "Vetting setup complete"
+    t5 --> g1
+    g1 --> e1: "no"
+    g1 --> t6: "yes"
+    t6 --> t7
+    t7 --> t8
+    t8 --> g2
+    g2 --> t9: "yes"
+    g2 --> e2: "no"
+    t9 --> e2
+  }
+}

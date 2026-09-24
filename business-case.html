@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Business case — Serco Agentic Vetting</title>
+<meta name="description" content="Every figure with its source slide: the RTW defect Pareto, pushback against Serco's 10% target, follow-on action volumes, and hours saved by agent and wave.">
+<link rel="stylesheet" href="assets/css/serco.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/a11y.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="brand-serco">
+    <img src="assets/img/serco-logo.png" alt="Serco">
+    <span class="divider" aria-hidden="true"></span>
+    <span class="context">Agentic Vetting</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="index.html">Overview</a>
+    <a href="process.html">Process &amp; personas</a>
+    <a href="evidence.html">Evidence</a>
+    <a href="agents.html">Agent fleet</a>
+    <a href="simulation.html">Live simulation</a>
+    <a href="business-case.html" aria-current="page">Business case</a>
+  </nav>
+  <div class="brand-cognizant"><img src="assets/img/Cognizantlogo.png" alt="Cognizant"></div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">The numbers, and where each came from</p>
+      <h1>≈192–199 hours a month, for Vetting &amp; Onboarding alone</h1>
+      <p class="lede">
+        Every figure on this page is footnoted to its source slide.
+        <span class="badge-serco">Serco figures</span> are quoted from your documents.
+        <span class="badge-ours">Cognizant arithmetic</span> is where we have combined
+        them. Nothing here should be read as a committed saving before the Wave 0
+        measurement, which the delivery plan makes a precondition.
+      </p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <p class="eyebrow">Process 1.1 — Conduct RTW Check</p>
+      <h2>Why 23% of checks come back</h2>
+      <div class="cards" style="margin-bottom:2rem">
+        <div class="stat"><span class="n">876<span class="unit">/mo</span></span><span class="k">RTW checks</span><span class="src">Jan–May 2026 average [WS p4]</span></div>
+        <div class="stat"><span class="n">2<span class="unit"> hrs</span></span><span class="k">SLA — reported as achieved</span><span class="src">AHT ~5 min, varies with complexity [WS p4]</span></div>
+        <div class="stat"><span class="n">23<span class="unit">%</span></span><span class="k">returned to line managers</span><span class="src">229 of 1,004, May 2026 [WS p4]</span></div>
+        <div class="stat"><span class="n">28<span class="unit">%</span></span><span class="k">in the 100-ticket July sample</span><span class="src">Sample used for root-cause analysis [VP p4]</span></div>
+      </div>
+
+      <figure class="chart">
+        <figcaption>Root causes of RTW pushback — 100 randomly selected checks</figcaption>
+        <div id="chart-pareto"></div>
+        <p class="src-note">Vetting Cognizant Workshop Sept 2026, p5 and p7; Vetting Processes Sept 26, p4. Rework hours calculated at 5 minutes per occurrence against a monthly volume of 876, as stated on p7.</p>
+      </figure>
+
+      <div class="callout callout--warn">
+        <p>
+          <strong>A discrepancy in the source, shown rather than resolved.</strong>
+          Page 4 states <strong>11.5 hours</strong> of avoidable rework for 229
+          tickets, which implies about 3 minutes each. The root-cause table on page
+          7 uses <strong>5 minutes</strong> per occurrence against a volume of 876,
+          which implies about <strong>19.1 hours</strong>. Both figures are in your
+          documents. We present the range 11.5–19.1 hrs/month with its cause rather
+          than quietly picking the larger one — but it is worth settling with the
+          process owner, because it changes the Wave 1 benefit by about 40%.
+        </p>
+        <cite>[WS p4] vs [WS p7]</cite>
+      </div>
+
+      <figure class="chart">
+        <figcaption>Pass and fail split, against Serco's own A3 target</figcaption>
+        <div id="chart-passfail"></div>
+        <div class="chart-legend">
+          <span><i class="legend-swatch" style="background:#1F6B3A;opacity:.78"></i> Pass</span>
+          <span><i class="legend-swatch" style="background:#EB2D2E"></i> Fail (returned to manager)</span>
+          <span><i class="legend-swatch" style="background:#1D0743"></i> Target set in the DUIS A3</span>
+        </div>
+        <p class="src-note">Vetting Cognizant Workshop Sept 2026, p5. The A3's Implement column records all three root causes as “Workshop booked to discuss” — no countermeasure has been implemented yet.</p>
+      </figure>
+    </div>
+  </section>
+
+  <section class="band band--tint">
+    <div class="wrap">
+      <p class="eyebrow">Process 1.5 — Conduct Audit</p>
+      <h2>326 tickets a month, raised by hand</h2>
+      <div class="cards" style="margin-bottom:2rem">
+        <div class="stat"><span class="n">643<span class="unit">/mo</span></span><span class="k">audit tickets</span><span class="src">Jan–May 2026 average [WS p9]</span></div>
+        <div class="stat"><span class="n">7.2<span class="unit"> days</span></span><span class="k">lead time, against a 3-day SLA</span><span class="src">AHT ~20 min [WS p9]</span></div>
+        <div class="stat"><span class="n">124<span class="unit"> hrs</span></span><span class="k">across three business cases</span><span class="src">Raised 8 July 2026 [WS p11–13]</span></div>
+      </div>
+
+      <figure class="chart">
+        <figcaption>Follow-on actions — each one currently a manually raised ServiceNow ticket</figcaption>
+        <div id="chart-volumes"></div>
+        <p class="src-note">Vetting Cognizant Workshop Sept 2026, p14. Volumes are Serco's stated assumptions (P45 ~30% of all requests; disabilities ~20/week; convictions ~10/week; veteran &lt;2/week). At ~5 minutes per ticket this is the 27 hrs/month of business case 3.</p>
+      </figure>
+
+      <div class="callout callout--draft">
+        <p>
+          <strong>The constraint that shapes agent A10.</strong> Business case 3
+          states it in capitals: if the role sits <em>within</em> Employment
+          Relations, the conviction ticket <strong>MUST NOT</strong> be sent via
+          ticket to the ER team, because it would be visible to the whole ER team.
+          A condition for VIVO also needs exploring.
+        </p>
+        <p style="margin-bottom:0">
+          This is why the Assurance plane enforces routing centrally rather than
+          leaving it to each agent — and why it is one of the five scenarios you can
+          run in the <a href="simulation.html">live simulation</a>, where you can
+          watch the guard fire.
+        </p>
+        <cite>Business case 3, stated risks — [WS p13]</cite>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <p class="eyebrow">Roll-up</p>
+      <h2>Hours saved, by agent</h2>
+      <figure class="chart">
+        <figcaption>Monthly hours, Vetting &amp; Onboarding only</figcaption>
+        <div id="chart-hours"></div>
+        <p class="src-note">Business cases 1–3 [WS p11–13]; RTW residual and rework [WS p4, p7]. Purple bars are figures Serco documented. Red bars are savings this design enables that Serco has not yet costed.</p>
+      </figure>
+
+      <div class="table-scroll">
+        <table class="data">
+          <caption>Every figure, with its source and its owner</caption>
+          <thead>
+            <tr><th>Saving</th><th class="num">Hrs/month</th><th>Agent</th><th>Wave</th><th>Source</th><th>Whose figure</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Automate audit document uploads to SAP</td><td class="num">54</td><td>A9</td><td>2</td><td>Business case 1 [WS p11]</td><td><span class="badge-serco">Serco</span></td></tr>
+            <tr><td>Automate audit document details to SAP</td><td class="num">43</td><td>A9</td><td>2</td><td>Business case 2 [WS p12]</td><td><span class="badge-serco">Serco</span></td></tr>
+            <tr><td>Automate audit follow-on actions</td><td class="num">27</td><td>A10</td><td>2</td><td>Business case 3 [WS p13]</td><td><span class="badge-serco">Serco</span></td></tr>
+            <tr><td>RTW check automation, after right-first-time</td><td class="num">56.2</td><td>A2 + A4</td><td>3</td><td>[WS p4]</td><td><span class="badge-serco">Serco</span></td></tr>
+            <tr><td>RTW rework eliminated (range — see caveat)</td><td class="num">11.5–19.1</td><td>A1–A4</td><td>1</td><td>[WS p4] / [WS p7]</td><td><span class="badge-serco">Serco</span></td></tr>
+            <tr class="total"><td>Total, Vetting &amp; Onboarding</td><td class="num">≈192–199</td><td>—</td><td>—</td><td>Sum of the above</td><td><span class="badge-ours">Cognizant</span></td></tr>
+            <tr><td>≈ FTE equivalent (at 160 hrs/month)</td><td class="num">≈1.2</td><td>—</td><td>—</td><td>Derived</td><td><span class="badge-ours">Cognizant</span></td></tr>
+            <tr><td>Direct Vetting — 14% inbound failure</td><td class="num">not claimed</td><td>A1–A4</td><td>4</td><td>[WS p1]</td><td>—</td></tr>
+            <tr><td>Specialist Vetting — 9% inbound failure</td><td class="num">not claimed</td><td>A1–A4</td><td>—</td><td>[WS p1]</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <p>
+          <strong>Why two rows say “not claimed”.</strong> Direct Vetting's 14% and
+          Specialist Vetting's 9% inbound failure rates are the same defect class as
+          RTW's 23%, so agents A1–A4 apply to them unchanged. But no volume or
+          average handling time was published for those teams, so any hours figure
+          would be invented. The honest position is that the reach is real and the
+          benefit is uncosted — and that a half-day with each team's data would
+          close it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--deep">
+    <div class="wrap">
+      <p class="eyebrow">Beyond hours</p>
+      <h2>What else changes</h2>
+      <div class="stats">
+        <div class="stat"><span class="n">7.2 → 3<span class="unit"> days</span></span><span class="k">audit lead time, into SLA</span><span class="src">Event-driven on DocuSign completion instead of batch-and-queue</span></div>
+        <div class="stat"><span class="n">23 → 10<span class="unit">%</span></span><span class="k">RTW pushback — Serco's own goal</span><span class="src">Prevention agents target below it</span></div>
+        <div class="stat"><span class="n">−3<span class="unit"> days</span></span><span class="k">manager-correction delay, off the critical path</span><span class="src">Estimated on the RTW map [VP p4]</span></div>
+        <div class="stat"><span class="n">2</span><span class="k">Excel trackers retired into SAP/AS</span><span class="src">ITC tracker and the visa register</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--tint">
+    <div class="wrap">
+      <p class="eyebrow">Risk register</p>
+      <h2>Taken verbatim from your business cases</h2>
+      <p class="lede">
+        These are not our risks about your process — they are the risks your own
+        business cases record. Each one became a design constraint on a specific
+        agent, which is the test of whether a solution actually read the documents.
+      </p>
+      <div class="table-scroll">
+        <table class="data">
+          <thead><tr><th>Stated risk</th><th>Source</th><th>Which agent answers it, and how</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>“Managers sending invalid documents (currently the team will filter unrequired docs out i.e. bank statements)”</td>
+              <td>BC 1 [WS p11]</td>
+              <td><strong>A2</strong> classifies and rejects out-of-scope documents before they reach SAP; <strong>A1</strong> stops them being submitted at all</td>
+            </tr>
+            <tr>
+              <td>“Managers sending multiple docs in a combined PDF (needs to be split prior to upload)”</td>
+              <td>BC 1 [WS p11]</td>
+              <td><strong>A2</strong> splits a combined PDF into discrete classified documents</td>
+            </tr>
+            <tr>
+              <td>“Non-standard documents? Escalation process required.”</td>
+              <td>BC 2 [WS p12]</td>
+              <td><strong>A2</strong> emits a per-field confidence score; anything below threshold escalates to a human rather than being written to SAP</td>
+            </tr>
+            <tr>
+              <td>“Conditions MUST be met. If the role sits within ER, it MUST NOT be sent via ticket to ER team as it will be visible to all ER team. Also condition for VIVO to be explored.”</td>
+              <td>BC 3 [WS p13]</td>
+              <td><strong>A10</strong> under a central routing guard in the Assurance plane. VIVO is flagged as unresolved, not assumed</td>
+            </tr>
+            <tr>
+              <td>“Reliance on digital verification may create a perception that physical document validation is no longer required”</td>
+              <td>Brainstorm ref 1 [WS p7]</td>
+              <td><strong>A3</strong> emits an <em>assurance level</em>, never a bare pass, and records what was and was not verifiable</td>
+            </tr>
+            <tr>
+              <td>“Risk of acknowledgement becoming a ‘click-through’ exercise without improving understanding or compliance”</td>
+              <td>Brainstorm ref 2 [WS p7]</td>
+              <td><strong>A1</strong> is a submission <em>gate</em>, not a checkbox — it blocks rather than warns</td>
+            </tr>
+            <tr>
+              <td>“The diverse and complex nature of vetting requirements will increase challenges to achieve a standardised output”</td>
+              <td>Brainstorm ref 3 [WS p7]</td>
+              <td><strong>A1</strong> holds the case when circumstances fall outside the modelled rule set instead of guessing a document list</td>
+            </tr>
+            <tr>
+              <td>“Accuracy may vary depending on document quality, format, and document type”</td>
+              <td>Brainstorm ref 4 [WS p7]</td>
+              <td><strong>Wave 0</strong> exists for exactly this: A2 and A4 run in shadow mode and are measured per document type before anything is automated</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <p class="eyebrow">Open questions</p>
+      <h2>Seven things we need from Serco</h2>
+      <ol style="max-width:70ch">
+        <li><strong>The rework figure.</strong> Is avoidable RTW rework 11.5 hrs/month or ~19.1? Both appear in the deck.</li>
+        <li><strong>The VIVO condition</strong> on follow-on routing is “to be explored” in business case 3. What is the rule?</li>
+        <li><strong>ER self-referral.</strong> How is “the role sits within ER” determined at audit time — SAP org unit, cost centre, something else? The guard depends on it.</li>
+        <li><strong>Specialist Vetting sign-off.</strong> What has to happen for that map to lose its “DRAFT — DON'T AUTOMATE” status?</li>
+        <li><strong>Volumes and AHT for Direct Vetting, Specialist Vetting and AFRS.</strong> The failure rates are published; the volumes are not, so no benefit can responsibly be claimed.</li>
+        <li><strong>AFRS VDI.</strong> Is the no-copy-paste, no-Access-Screening-link constraint a fixed platform boundary or configuration? It decides whether A5 can reach AFRS at all.</li>
+        <li><strong>Access Screening integration.</strong> Does AS expose an API or webhook for link completion, or is polling genuinely the only route? A6's design depends on the answer.</li>
+      </ol>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Serco Vetting &amp; Onboarding · Agentic AI solution design · September 2026</span>
+    <span>Prepared by Cognizant · figures sourced from Serco process documentation</span>
+  </div>
+</footer>
+
+<script src="assets/js/charts.js"></script>
+<script>
+(function () {
+  'use strict';
+  var C = window.SVS.Charts;
+
+  C.pareto(document.getElementById('chart-pareto'), [
+    { label: 'Missing or incorrect ID verification', value: 14, highlight: true,
+      note: '~10 hrs/month · answered by agents A3 + A2' },
+    { label: 'ID info doesn’t match the system', value: 13, highlight: true,
+      note: '~9.5 hrs/month · answered by agent A4' },
+    { label: 'Not enough ID to proceed', value: 6,
+      note: '9% combined ≈ 6.6 hrs/month · answered by agent A1' },
+    { label: 'Incorrect document types', value: 3,
+      note: 'answered by agent A1' }
+  ], {
+    title: 'Pareto of RTW pushback root causes',
+    desc: 'Missing or incorrect ID verification 14 percent; ID information not matching the system 13 percent; not enough ID to proceed 6 percent; incorrect document types 3 percent. From a sample of 100 randomly selected RTW checks.'
+  });
+
+  C.passFail(document.getElementById('chart-passfail'), {
+    title: 'RTW check pass and fail split',
+    desc: 'In May 2026, 23 percent of RTW approval tickets were returned to line managers. Serco’s DUIS A3 sets a target of 10 percent.',
+    target: 10,
+    bars: [
+      { label: 'May 2026', sub: '229 of 1,004 tickets', fail: 23 },
+      { label: 'July sample', sub: '100-ticket root-cause sample', fail: 28 }
+    ]
+  });
+
+  C.volumeBars(document.getElementById('chart-volumes'), [
+    { label: 'P45 attached', value: 193, to: '→ Payroll' },
+    { label: 'Disabilities declared', value: 86, to: '→ Line Manager' },
+    { label: 'Criminal convictions declared', value: 43, to: '→ Employment Relations' },
+    { label: 'Veteran status', value: 4, to: '→ Payroll / doc request' }
+  ], {
+    title: 'Follow-on action volumes per month',
+    desc: 'P45 attached 193 per month to Payroll; disabilities declared 86 to the line manager; criminal convictions declared 43 to Employment Relations; veteran status 4. Total 326 tickets per month.'
+  });
+
+  C.hoursBars(document.getElementById('chart-hours'), [
+    { label: 'A9 · SAP document uploads', value: 54, serco: true },
+    { label: 'A9 · document details to SAP', value: 43, serco: true },
+    { label: 'A2+A4 · RTW check, after RFT', value: 56.2, serco: true },
+    { label: 'A10 · follow-on ticket routing', value: 27, serco: true },
+    { label: 'A1–A4 · RTW rework eliminated', value: 19.1, serco: true },
+    { label: 'A6 · retire the daily AS report', value: 0, text: 'not yet costed' },
+    { label: 'A7 · inbox and query triage', value: 0, text: 'not yet costed' }
+  ], {
+    title: 'Monthly hours saved by agent',
+    desc: 'Agent A9 saves 54 plus 43 hours per month on SAP filing and keying. A2 and A4 enable 56.2 hours on the RTW check after right-first-time is achieved. A10 saves 27 hours on follow-on ticket routing. A1 to A4 eliminate up to 19.1 hours of rework. A6 and A7 deliver savings Serco has not yet costed.'
+  });
+})();
+</script>
+</body>
+</html>

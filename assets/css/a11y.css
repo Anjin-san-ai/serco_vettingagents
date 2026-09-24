@@ -1,0 +1,54 @@
+/* ==========================================================================
+   Accessibility + projector mode
+   Projector mode exists because a workshop projector in a lit room delivers
+   roughly 200:1 effective contrast, which collapses exactly the dark end of
+   the range where the simulation's trace detail lives.
+   ========================================================================== */
+
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%);
+  white-space: nowrap; border: 0;
+}
+/* Focusable-but-hidden: used by the DOM mirror of the 3D scene, which is the
+   authoritative accessible representation and doubles as the no-WebGL view. */
+.sr-only-focusable:focus,
+.sr-only-focusable:focus-within {
+  position: static !important;
+  width: auto; height: auto; margin: 0; overflow: visible;
+  clip: auto; clip-path: none; white-space: normal;
+}
+
+/* ---------- reduced motion ----------
+   Default-on when the OS asks for it, but the simulation exposes an explicit
+   override either way: the sim keeps running, only interpolation stops. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
+body[data-motion="reduce"] *, body[data-motion="reduce"] *::before, body[data-motion="reduce"] *::after {
+  animation-duration: .001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: .001ms !important;
+}
+
+/* ---------- projector mode ---------- */
+body[data-projector="on"] {
+  font-size: 18px;
+}
+body[data-projector="on"] .sim-hud { transform-origin: top left; }
+body[data-projector="on"] .hud-panel { font-size: 1.05rem; }
+body[data-projector="on"] .hud-counter .n { font-size: 2.1rem; }
+body[data-projector="on"] .legend-swatch { width: 1.35rem; height: 1.35rem; border-width: 3px; }
+body[data-projector="on"] .chip { font-size: .82rem; }
+
+/* ---------- forced colours / high contrast ---------- */
+@media (forced-colors: active) {
+  .stat, .card, .agent-box { border: 1px solid CanvasText; }
+  .chip { border: 1px solid CanvasText; }
+}

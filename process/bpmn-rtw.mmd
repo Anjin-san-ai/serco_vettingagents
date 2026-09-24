@@ -1,0 +1,33 @@
+bpmn-beta
+accTitle: Right to Work Check - Current State
+accDescr: Swimlane process model of Serco's Right to Work check, from a line manager submitting an offer in PeopleFirst through to the Vetting and Onboarding team closing the ServiceNow ticket, including the pushback loop that returns 23 percent of tickets to the manager.
+pool serco "Serco" {
+  lane lm "Line Manager" {
+    start s1 "Ready to offer"
+    task t1 "Populate details in PeopleFirst (Appian)"
+    task t2 "Upload RTW documents"
+    task t3 "Submit offer"
+    task t8 "Amend details and return to Vetting and Onboarding"
+    s1 --> t1
+    t1 --> t2
+    t2 --> t3
+  }
+  lane vob "Vetting and Onboarding Team" {
+    task t4 "RTW ticket generated on ServiceNow"
+    task t5 "Check details against submitted evidence"
+    xor g1 "Details correct?"
+    task t6 "Close complete RTW ticket"
+    task t7 "Close incomplete with notes"
+    task t9 "Email line manager with reasons for pushback"
+    end e1 "RTW check complete"
+    t3 --> t4
+    t4 --> t5
+    t5 --> g1
+    g1 --> t6: "yes (77%)"
+    g1 --> t7: "no (23% pushback)"
+    t6 --> e1
+    t7 --> t9
+    t9 --> t8
+    t8 --> t5
+  }
+}

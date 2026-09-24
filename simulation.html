@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live simulation — Serco Agentic Vetting</title>
+<meta name="description" content="An animated simulation of the Serco agentic vetting fleet working real case scenarios, including the ER confidentiality guard and human-in-the-loop holds.">
+<link rel="stylesheet" href="assets/css/serco.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/trust.css">
+<link rel="stylesheet" href="assets/css/a11y.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Boot self-check target: a missing vendor file must read as an instruction,
+     not as a black rectangle five minutes before a workshop. -->
+<div id="boot-error" role="alert">
+  <div>
+    <h2>The simulation could not start</h2>
+    <p id="boot-error-detail"></p>
+    <p>
+      This page needs <code>assets/vendor/three.min.js</code> (a UMD build of
+      Three.js r149) and the scripts under <code>assets/js/</code>. Copy the whole
+      folder, not just the HTML file.
+    </p>
+    <p><a href="agents.html" style="color:#E4D8FB">View the agent fleet instead &rarr;</a></p>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="brand-serco">
+    <img src="assets/img/serco-logo.png" alt="Serco">
+    <span class="divider" aria-hidden="true"></span>
+    <span class="context">Agentic Vetting</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="index.html">Overview</a>
+    <a href="process.html">Process &amp; personas</a>
+    <a href="evidence.html">Evidence</a>
+    <a href="agents.html">Agent fleet</a>
+    <a href="simulation.html" aria-current="page">Live simulation</a>
+    <a href="business-case.html">Business case</a>
+  </nav>
+  <div class="brand-cognizant"><img src="assets/img/Cognizantlogo.png" alt="Cognizant"></div>
+</header>
+
+<main id="main">
+
+  <section class="band" style="padding-bottom:1rem">
+    <div class="wrap">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;flex-wrap:wrap">
+        <div>
+          <p class="eyebrow">The fleet at work</p>
+          <h1 style="margin-bottom:.5rem">Eleven agents, working simulated vetting cases</h1>
+        </div>
+        <button type="button" id="btn-trust" class="chip chip--wave"
+                aria-pressed="false" aria-expanded="false" aria-controls="trust-pane"
+                style="cursor:pointer;border:0;font-family:inherit;font-size:.82rem;padding:.55em 1.1em;white-space:nowrap">
+          Cognizant Trust dashboard
+        </button>
+      </div>
+      <p class="lede">
+        Each case enters at the orchestrator, is routed to the agents its clearance
+        type requires, and either completes or stops for a human. One simulated
+        second is one business hour. Click any pod for detail — and to release a
+        case that is waiting on a person.
+      </p>
+    </div>
+  </section>
+
+  <section style="padding:0 0 2rem">
+    <div class="wrap">
+     <div id="sim-split">
+      <div id="sim-pane">
+      <div class="sim-stage" id="sim-stage">
+        <canvas id="sim-canvas" width="1280" height="720"
+                role="img"
+                aria-label="Isometric view of eleven AI agents arranged around a central orchestrator, with vetting cases flowing between them along glowing circuit traces. The agent list below this canvas carries the same information as text."></canvas>
+
+        <div class="sim-hud">
+          <div class="hud-counters">
+            <div class="hud-panel hud-counter">
+              <span class="n" id="hud-processed">0</span>
+              <span class="k">cases processed</span>
+            </div>
+            <div class="hud-panel hud-counter">
+              <span class="n" id="hud-hours">0.0</span>
+              <span class="k">hours saved</span>
+            </div>
+            <div class="hud-panel hud-counter">
+              <span class="n" id="hud-pushbacks">0</span>
+              <span class="k">pushbacks prevented</span>
+            </div>
+            <div class="hud-panel hud-counter">
+              <span class="n" id="hud-sla">100%</span>
+              <span class="k">SLA attainment</span>
+            </div>
+            <div class="hud-panel hud-counter">
+              <span class="n" id="hud-human">0</span>
+              <span class="k">human decisions</span>
+            </div>
+            <div class="hud-panel hud-counter">
+              <span class="n" id="hud-guard">0</span>
+              <span class="k">ER guards fired</span>
+            </div>
+            <div class="hud-panel hud-counter">
+              <span class="n" id="hud-days">0.0</span>
+              <span class="k">lead days saved</span>
+            </div>
+          </div>
+
+          <div class="hud-side">
+            <div class="hud-panel hud-log">
+              <h4>Event log</h4>
+              <ol id="hud-log-list"></ol>
+            </div>
+          </div>
+
+          <div class="hud-panel hud-detail" id="hud-detail" hidden>
+            <button type="button" class="close" id="hud-detail-close" aria-label="Close agent detail">&times;</button>
+            <h4 id="hud-detail-name"></h4>
+            <div id="hud-detail-body"></div>
+          </div>
+
+          <div class="hud-controls hud-panel">
+            <button type="button" id="btn-play" aria-pressed="false">&#8214; Pause</button>
+            <label>Speed
+              <select id="sel-speed">
+                <option value="0.5">0.5&times;</option>
+                <option value="1" selected>1&times;</option>
+                <option value="2">2&times;</option>
+                <option value="4">4&times;</option>
+              </select>
+            </label>
+            <label>Scenario
+              <select id="sel-scenario">
+                <option value="live" selected>Live mix (23% pushback)</option>
+                <option value="happy-path">Happy path</option>
+                <option value="id-mismatch">ID / Appian mismatch</option>
+                <option value="insufficient-id">Insufficient ID</option>
+                <option value="conviction-declared">Conviction declared</option>
+                <option value="visa-required">Visa required</option>
+              </select>
+            </label>
+            <button type="button" id="btn-auto" aria-pressed="true">Auto-release: on</button>
+            <button type="button" id="btn-projector" aria-pressed="false">Projector mode</button>
+            <button type="button" id="btn-motion" aria-pressed="false">Reduce motion: off</button>
+            <label>Quality
+              <select id="sel-quality">
+                <option value="auto" selected>Auto</option>
+                <option value="0">High</option>
+                <option value="1">Medium</option>
+                <option value="2">Low</option>
+              </select>
+            </label>
+            <span class="mono" id="hud-fps" style="margin-left:auto;color:#B9A9D6"></span>
+          </div>
+        </div>
+      </div>
+
+      </div><!-- /sim-pane -->
+      <aside id="trust-pane" class="trust-pane" hidden aria-label="Cognizant Trust dashboard"></aside>
+     </div><!-- /sim-split -->
+
+      <!-- Reading the scene: the legend, directly under the panel where it is
+           needed. Generated from assets/js/config.js so the legend and the
+           scene cannot drift apart. -->
+      <div class="dash-card" style="margin-top:1rem">
+        <h3>Reading the scene</h3>
+        <div class="legend-rows" id="state-legend"></div>
+        <p class="src-note" style="margin:.9rem 0 0">
+          Generated from the same config the 3D scene reads, so the two cannot
+          disagree. State is carried by five channels — chip, ring shape, motion,
+          elevation and colour — because measured greyscale luminance is
+          <em>not</em> monotonic across these states (idle 0.72, working 0.20,
+          waiting 0.73, escalated 0.12, complete 0.53), so brightness alone would
+          not separate them. Correcting an earlier claim of ours that it would.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding-top:1rem">
+    <div class="wrap">
+      <p class="eyebrow">Live case dashboard</p>
+      <h2>The data moves because the agents do</h2>
+      <p class="lede">
+        Every figure below is read from the running simulation on the same tick as
+        the scene. Nothing here is a static screenshot — change the scenario and
+        watch the table, the throughput and the load redistribute.
+      </p>
+
+      <div class="dash-grid" style="margin-top:1.5rem">
+        <div class="dash-card">
+          <h3>&#128203; Cases in flight</h3>
+          <table class="case-table">
+            <thead>
+              <tr><th>Case</th><th>Candidate</th><th>Clearance</th><th>At agent</th><th>Status</th><th>Hop / SLA</th></tr>
+            </thead>
+            <tbody id="case-tbody"></tbody>
+          </table>
+          <p class="case-empty" id="case-empty">Waiting for the first case to enter the pipeline…</p>
+        </div>
+
+        <div class="dash-side">
+          <div class="dash-card">
+            <h3>&#128200; Throughput</h3>
+            <div class="dash-sparkrow">
+              <span class="dash-sparknow" id="dash-spark-now">0</span>
+              <span class="dash-hint">completed per 2.5s bucket · last 30s</span>
+            </div>
+            <div id="dash-spark"></div>
+          </div>
+
+          <div class="dash-card">
+            <h3>&#127968; Agent load</h3>
+            <div class="dash-heat" id="dash-heat"></div>
+            <p class="dash-hint" style="margin:.6rem 0 0">
+              Hops handled per agent. A red badge is queue depth — where a human
+              hold is creating a bottleneck.
+            </p>
+          </div>
+
+          <div class="dash-card">
+            <h3>&#9878; Outcomes</h3>
+            <div class="dash-donutrow">
+              <div class="dash-donut" id="dash-donut"></div>
+              <div class="dash-donut-key" id="dash-donut-key"></div>
+            </div>
+            <div class="dash-kpis">
+              <div class="dash-kpi"><span class="ki">&#9201;</span><span class="kn" id="kpi-hours">0.0</span><span class="kk">hrs saved</span></div>
+              <div class="dash-kpi"><span class="ki">&#128197;</span><span class="kn" id="kpi-days">0.0</span><span class="kk">lead days</span></div>
+              <div class="dash-kpi"><span class="ki">&#128737;</span><span class="kn" id="kpi-guard">0</span><span class="kk">guards</span></div>
+              <div class="dash-kpi"><span class="ki">&#127919;</span><span class="kn" id="kpi-sla">100%</span><span class="kk">SLA</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--tint" style="padding-top:1rem">
+    <div class="wrap">
+      <div class="sim-fallback-note" id="sim-fallback-note" hidden>
+        <h3>Running the 2D renderer</h3>
+        <p id="sim-fallback-reason"></p>
+        <p style="margin:0">
+          The simulation itself is unchanged — same cases, same agents, same
+          encoding. Only the projection is flatter.
+        </p>
+      </div>
+
+      <h2>Agent status</h2>
+      <p class="lede">
+        The same information the 3D scene shows, as text. This list is the
+        authoritative accessible view, the keyboard surface, and the fallback
+        when WebGL is unavailable.
+      </p>
+      <ul class="agent-mirror" id="agent-mirror"></ul>
+      <p class="sr-only" id="sim-live" aria-live="polite" aria-relevant="additions"></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Serco Vetting &amp; Onboarding · Agentic AI solution design · September 2026</span>
+    <span>Prepared by Cognizant · figures sourced from Serco process documentation</span>
+  </div>
+</footer>
+
+<!-- Classic scripts only. <script type="module"> does not work from file://
+     (module scripts are fetched under CORS; a file:// page has a null origin),
+     and Safari being permissive while Chrome is not makes that the worst
+     possible failure mode. Load order: vendor, config, sim, view, hud,
+     fallback, then app. -->
+<script src="assets/vendor/three.min.js"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/sim/agents.js"></script>
+<script src="assets/js/sim/engine.js"></script>
+<script src="assets/js/view/scene.js"></script>
+<script src="assets/js/view/view.js"></script>
+<script src="assets/js/hud/hud.js"></script>
+<script src="assets/js/hud/dashboard.js"></script>
+<script src="assets/js/hud/trust.js"></script>
+<script src="assets/js/fallback/canvas2d.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

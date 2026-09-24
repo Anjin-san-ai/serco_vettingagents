@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent fleet — Serco Agentic Vetting</title>
+<meta name="description" content="Eleven agents and a governance plane, mapped to Serco's documented vetting processes, systems and business cases.">
+<link rel="stylesheet" href="assets/css/serco.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/a11y.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="brand-serco">
+    <img src="assets/img/serco-logo.png" alt="Serco">
+    <span class="divider" aria-hidden="true"></span>
+    <span class="context">Agentic Vetting</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="index.html">Overview</a>
+    <a href="process.html">Process &amp; personas</a>
+    <a href="evidence.html">Evidence</a>
+    <a href="agents.html" aria-current="page">Agent fleet</a>
+    <a href="simulation.html">Live simulation</a>
+    <a href="business-case.html">Business case</a>
+  </nav>
+  <div class="brand-cognizant"><img src="assets/img/Cognizantlogo.png" alt="Cognizant"></div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">The multi-agent system</p>
+      <h1>One orchestrator, ten specialists, one governance plane</h1>
+      <p class="lede">
+        Every agent below exists because something in your documents asked for it —
+        a measured defect, a written business case, or an item on one of the four
+        teams' own opportunity lists. Select any agent to see what it takes in, what
+        it does, what it hands on, and where it stops and asks a person.
+      </p>
+      <p>
+        <button type="button" id="toggle-waves" class="chip chip--wave"
+                aria-pressed="false"
+                style="cursor:pointer;border:0;font-family:inherit;font-size:.8rem;padding:.45em 1em">
+          Show delivery waves
+        </button>
+      </p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <noscript>
+        <div class="callout callout--warn">
+          <p>
+            This page builds the agent grid from a shared data file with JavaScript,
+            so that the fleet page and the simulation can never disagree about what an
+            agent does. With JavaScript disabled, the full fleet is documented in
+            <code>plan.md</code>, section 5.
+          </p>
+        </div>
+      </noscript>
+
+      <div class="fleet" id="fleet" data-waves="off">
+        <!-- built by assets/js/fleet.js from assets/js/sim/agents.js -->
+      </div>
+
+      <p class="src-note">
+        Agent definitions and evidence citations live in
+        <code>assets/js/sim/agents.js</code> — the same file the simulation runs on.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band--tint">
+    <div class="wrap">
+      <p class="eyebrow">The substrate</p>
+      <h2>Assurance is not the twelfth agent</h2>
+      <p class="lede">
+        It is the floor all eleven stand on. In the simulation it is literally the
+        surface they sit on. It is live from Wave 0, because the data classes in play
+        make it a precondition rather than a later addition.
+      </p>
+      <div class="assurance-plane">
+        <h3>Assurance &amp; Audit plane</h3>
+        <ul class="plain" id="assurance-list" style="margin-bottom:1rem"></ul>
+        <p id="assurance-note" style="margin:0;color:#BFC8D6;font-size:.9rem"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <p class="eyebrow">Two guardrails worth stating plainly</p>
+      <h2>The lines the fleet does not cross</h2>
+      <div class="cards">
+        <div class="card card--accent">
+          <h3>No agent issues a clearance</h3>
+          <p>
+            A8 Adjudication Support assembles the Check &amp; Progress evidence pack —
+            references, DBS, credit checks, residency and 5-year address history,
+            screening answers, occupational health decision — applies the documented
+            policy, and produces a recommendation with citations <em>and an explicit
+            list of what is missing</em>. A vetting officer makes every decision.
+          </p>
+          <p class="src-note">Your SIPOC calls this step value-adding human judgement. [WS p2]</p>
+        </div>
+        <div class="card card--accent">
+          <h3>The ER confidentiality guard</h3>
+          <p>
+            Business case 3 states it in capitals: if the role sits <em>within</em>
+            Employment Relations, the conviction ticket <strong>must not</strong> be
+            sent to the ER queue, because it is visible to the whole ER team. A10
+            enforces this as a hard routing guard in the assurance plane, and it is one
+            of the five scenarios you can run in the
+            <a href="simulation.html">simulation</a>. The VIVO condition is flagged as
+            unresolved rather than assumed.
+          </p>
+          <p class="src-note">Business case 3, stated risks. [WS p13]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Serco Vetting &amp; Onboarding · Agentic AI solution design · September 2026</span>
+    <span>Prepared by Cognizant · figures sourced from Serco process documentation</span>
+  </div>
+</footer>
+
+<script src="assets/js/sim/agents.js"></script>
+<script src="assets/js/fleet.js"></script>
+</body>
+</html>
